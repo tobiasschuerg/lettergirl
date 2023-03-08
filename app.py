@@ -1,15 +1,25 @@
 import yaml
-from flask import Flask, request, make_response, abort, jsonify
+from flask import Flask, request, make_response, jsonify, render_template
 
 from letter_util import compile_letter
 from template import prepare_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='html')
+
+
+@app.route('/', methods=['GET'])
+def index():
+    filename = request.args.get('filename')
+    with open(f"templates/{filename}.yaml", "r", encoding="utf-8") as file:
+        # Load the YAML data
+        template = yaml.safe_load(file)
+    # display the form
+    return render_template('/form.html', values=template["params"])
 
 
 @app.route('/generate-letter', methods=['POST'])
 def generate_letter():
-    data = yaml.safe_load(request.data)
+    data = request.form.to_dict()
     try:
         template = prepare_template(r"templates/kündigung_vodafone.yaml", data)
     except Exception as e:
