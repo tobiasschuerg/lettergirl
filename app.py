@@ -1,3 +1,5 @@
+import os
+
 import yaml
 from flask import Flask, request, make_response, jsonify, render_template
 
@@ -7,8 +9,15 @@ from template import prepare_template
 app = Flask(__name__, template_folder='html')
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def index():
+    folder_path = './templates'
+    files = [os.path.splitext(f)[0] for f in os.listdir(folder_path)]
+    return render_template('index.html', title='lettergirl', files=files)
+
+
+@app.route('/details', methods=['GET'])
+def details():
     filename = request.args.get('filename')
     with open(f"templates/{filename}.yaml", "r", encoding="utf-8") as file:
         # Load the YAML data
