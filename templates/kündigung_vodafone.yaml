@@ -7,7 +7,7 @@ opening: 'Sehr geehrte Damen und Herren,'
 subject: 'Kündigung'
 body: |
   hiermit kündige ich meinen Vertrag 
-  mit der \textbf{Kundennummer [customer_number]} 
+  mit der \textbf{Kundennummer [vodafone_customer_number]} 
   fristgerecht zum nächstmöglichen Zeitpunkt. 
   
   Bitte bestätigen Sie mir den Eingang und die Wirksamkeit dieser Kündigung, 
@@ -19,4 +19,4 @@ closing: |
 params:
   - my_address
   - my_name
-  - customer_number
+  - vodafone_customer_number
