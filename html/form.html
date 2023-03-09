@@ -7,69 +7,39 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">lettergirl</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
+      <div class="container"><a class="navbar-brand" href="/">lettergirl</a> {{ name }}</div>
     </nav>
 
-    <div class="container">
-      <form method="POST" action="generate-letter" target="_blank">
-        {% for value in values %}
-        <div class="form-group">
-          <label for="{{ value }}">{{ value }}</label>
-          <input type="text" class="form-control" name="{{ value }}" id="{{ value }}" />
+    <div class="container p-5">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <form method="POST" action="generate-letter" target="_blank">
+            <input type="hidden" name="filename" value="{{file}}" />
+            {% for param in params %}
+            <div class="form-group">
+              <label for="{{ param.key }}">{{ param.name or param.key }}</label>
+              <input
+                type="text"
+                class="form-control"
+                name="{{ param.key }}"
+                id="{{ param.key }}"
+                placeholder="{{param.name}}"
+              />
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
         </div>
-        {% endfor %}
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+        <div class="col"></div>
+      </div>
     </div>
 
     <!-- Link to jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <!-- Link to Bootstrap JS file -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <!-- Script to store form data in localStorage -->
-    <script>
-      // Select all form inputs
-      const formInputs = document.querySelectorAll("form input");
-
-      // Loop through form inputs and add event listener to store input values in local storage
-      formInputs.forEach((input) => {
-        input.addEventListener("input", () => {
-          localStorage.setItem(input.id, input.value);
-        });
-      });
-
-      // Loop through form inputs and restore input values from local storage
-      formInputs.forEach((input) => {
-        const storedValue = localStorage.getItem(input.id);
-        if (storedValue) {
-          input.value = storedValue;
-        }
-      });
-    </script>
+    <script src="{{ url_for('static', filename='js/autoform.js') }}"></script>
   </body>
 </html>

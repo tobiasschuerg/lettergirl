@@ -16,7 +16,9 @@ body: |
 closing: |
   Mit freundlichen Grüßen,
   [my_name]
+metadata:
+  name: "Kündigung Vodafone"
 params:
-  - my_address
-  - my_name
-  - vodafone_customer_number
+  - key: my_address
+  - key: my_name
+  - key: vodafone_customer_number

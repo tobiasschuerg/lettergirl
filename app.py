@@ -1,4 +1,5 @@
 import os
+import traceback
 
 import yaml
 from flask import Flask, request, make_response, jsonify, render_template
@@ -19,19 +20,21 @@ def index():
 @app.route('/details', methods=['GET'])
 def details():
     filename = request.args.get('filename')
-    with open(f"templates/{filename}.yaml", "r", encoding="utf-8") as file:
+    dfsakjhkl = f"templates/{filename}.yaml"
+    with open(dfsakjhkl, "r", encoding="utf-8") as file:
         # Load the YAML data
         template = yaml.safe_load(file)
     # display the form
-    return render_template('/form.html', values=template["params"])
+    return render_template('/form.html', name=template['metadata']['name'], params=template["params"], file=dfsakjhkl)
 
 
 @app.route('/generate-letter', methods=['POST'])
 def generate_letter():
     data = request.form.to_dict()
     try:
-        template = prepare_template(r"templates/kündigung_vodafone.yaml", data)
+        template = prepare_template(data["filename"], data)
     except Exception as e:
+        traceback.print_exc()
         # return abort(400, str(e))
         return jsonify({'error': str(e)}), 400
 

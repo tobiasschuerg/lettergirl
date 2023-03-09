@@ -15,12 +15,19 @@ def prepare_template(template_file, data: dict):
 
     params = template.pop("params")
     for param in params:
-        if param not in data.keys():
-            raise KeyError(param + " missing")
+
+
+
+        if param['key'] not in    data.keys():
+
+
+
+            raise KeyError(str(param) + " missing")
 
     with open('letter.tex', encoding="utf-8") as f:
         letter = f.read()
 
+    template.pop("metadata")
     for key, value in template.items():
         modified_value = replace_placeholders(value, data)
         letter = letter.replace(":" + key, modified_value)

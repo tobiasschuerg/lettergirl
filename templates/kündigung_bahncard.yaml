@@ -1,0 +1,23 @@
+to: |
+  Bahncard-Service
+  60643 Frankfurt
+opening: "Sehr geehrte Damen und Herren,"
+subject: "Kündigung: [bahncard_produkt]"
+body: |
+  hiermit kündige ich zum nächstmöglichen Termin [bahncard_produkt].
+
+  Meine Bahncard-Kartennummer: [bahncard_nummer]
+
+  Bitte bestätigen sie mir umgehend den Erhalt der Kündigung.
+
+closing: |
+  Mit freundlichen Grüßen,
+  [my_name]
+metadata:
+  name: Kündigung Bahncard
+params:
+  - name: Meine Adresse
+    key: my_address
+  - key: my_name
+  - key: bahncard_produkt
+  - key: bahncard_nummer
