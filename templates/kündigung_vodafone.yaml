@@ -3,16 +3,16 @@ to: |
   Vodafone Kunden Service Center
   Postfach 90 01 31
   75090 Pforzheim
-opening: 'Sehr geehrte Damen und Herren,'
-subject: 'Kündigung'
+opening: "Sehr geehrte Damen und Herren,"
+subject: "Kündigung"
 body: |
   hiermit kündige ich meinen Vertrag 
   mit der \textbf{Kundennummer [vodafone_customer_number]} 
   fristgerecht zum nächstmöglichen Zeitpunkt. 
-  
+
   Bitte bestätigen Sie mir den Eingang und die Wirksamkeit dieser Kündigung, 
   inklusive Beendigungzeitpunkt, schriftlich.
-  
+
 closing: |
   Mit freundlichen Grüßen,
   [my_name]

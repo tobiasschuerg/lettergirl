@@ -1,6 +1,5 @@
-
-__pycache__
 .idea
-out
+__pycache__
 node_modules
+out
 venv
