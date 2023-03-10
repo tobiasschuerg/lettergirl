@@ -4,7 +4,7 @@ to: |
   Postfach 90 01 31
   75090 Pforzheim
 opening: "Sehr geehrte Damen und Herren,"
-subject: "Kündigung"
+subject: "Kündigung [vodafone_product]"
 body: |
   hiermit kündige ich meinen Vertrag 
   mit der \textbf{Kundennummer [vodafone_customer_number]} 
@@ -20,5 +20,11 @@ metadata:
   name: "Kündigung Vodafone"
 params:
   - key: my_address
+    name: Meine Adresse
   - key: my_name
+    name: Mein Name
   - key: vodafone_customer_number
+    name: Vodafone Kundennummer
+  - key: vodafone_product
+    name: Vodafone Produkt Name
+    optional: true
