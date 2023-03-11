@@ -1,0 +1,18 @@
+$white: #ffffff;
+
+$theme-colors: (
+  "light": #c1e8f9,
+  "dark": #0c0546,
+  "primary": #29dfb2,
+  "secondary": #24647c,
+  "info": #3265ca,
+  "success": #0eb23c,
+  "warning": #f6c80e,
+  "danger": #f80541,
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+.card-item {
+  transition: all 0.5s;
+}

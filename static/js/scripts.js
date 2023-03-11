@@ -1,29 +1,30 @@
 const searchInput = document.querySelector("#search-input");
 const cardsContainer = document.querySelector("#card-container");
+const noResults = document.querySelector("#no-results");
 
-// Add event listener for the keyup event
-searchInput.addEventListener("keyup", () => {
+searchInput.addEventListener("input", () => {
   const searchTerm = searchInput.value.toLowerCase().trim();
+  console.log("keyup: " + searchTerm);
+  let count = 0;
 
   // Loop through all the cards
-  cardsContainer.querySelectorAll(".card-item").forEach((card) => {
+  const cards = cardsContainer.querySelectorAll(".card-item");
+  cards.forEach((card) => {
     const name = card.dataset.name.toLowerCase();
 
     // If the card name contains the search term, show the card; otherwise, hide it
     if (name.includes(searchTerm)) {
       card.classList.remove("d-none");
+      count++;
     } else {
       card.classList.add("d-none");
     }
   });
-});
 
-// Add event listener for the input event
-searchInput.addEventListener("input", () => {
-  if (searchInput.value.trim() === "") {
-    // If the search input is empty, show all the cards
-    cardsContainer.querySelectorAll(".card-item").forEach((card) => {
-      card.classList.remove("d-none");
-    });
+  // Show or hide the "no results" message based on the count
+  if (count === 0) {
+    noResults.style.display = "block";
+  } else {
+    noResults.style.display = "none";
   }
 });
