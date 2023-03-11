@@ -11,4 +11,4 @@ docker build -t lettergirl .                  # build container
 docker run --rm -it -p 8000:8000 lettergirl   # runcontainer
 ```
 
-2.
+and then open http://localhost:8000

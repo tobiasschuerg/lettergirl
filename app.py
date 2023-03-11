@@ -26,7 +26,7 @@ def details():
         template = yaml.safe_load(file)
     # display the form
     return render_template(
-        "/form.html",
+        "/details.html",
         name=template["metadata"]["name"],
         params=template["params"],
         file=dfsakjhkl,
