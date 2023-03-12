@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  validate:
+  validate_tenplates:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
