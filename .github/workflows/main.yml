@@ -1,4 +1,4 @@
-name: Validate templates on Push and PR
+name: Check formatting and validate templates on Push and PR
 
 on:
   push:
@@ -7,6 +7,17 @@ on:
   pull_request:
 
 jobs:
+  formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          npm install
+          pip install yapf
+      - name: Run formatting check
+        run: npm run check-format
+
   validate_tenplates:
     runs-on: ubuntu-latest
     steps:
