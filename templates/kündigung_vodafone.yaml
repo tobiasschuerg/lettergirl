@@ -10,6 +10,9 @@ body: |
   mit der \textbf{Kundennummer [vodafone_customer_number]} 
   fristgerecht zum nächstmöglichen Zeitpunkt. 
 
+  Meine Adesse:
+  \indent [my_address]
+
   Bitte bestätigen Sie mir den Eingang und die Wirksamkeit dieser Kündigung, 
   inklusive Beendigungzeitpunkt, schriftlich.
 

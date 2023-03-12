@@ -13,15 +13,16 @@ app = Flask(__name__, template_folder="html")
 @app.route("/")
 def index():
     folder_path = "./templates"
-    files = [os.path.splitext(f)[0] for f in os.listdir(folder_path)]
-    return render_template("index.html", title="lettergirl", files=files)
+    yaml_files = [f for f in os.listdir(folder_path) if f.endswith(".yaml")]
+    file_names = [os.path.splitext(f)[0] for f in yaml_files]
+    return render_template("index.html", title="lettergirl", files=file_names)
 
 
 @app.route("/details", methods=["GET"])
 def details():
-    filename = request.args.get("filename")
-    dfsakjhkl = f"templates/{filename}.yaml"
-    with open(dfsakjhkl, "r", encoding="utf-8") as file:
+    file_name = request.args.get("filename")
+    file_path = f"templates/{file_name}.yaml"
+    with open(file_path, "r", encoding="utf-8") as file:
         # Load the YAML data
         template = yaml.safe_load(file)
     # display the form
@@ -29,7 +30,7 @@ def details():
         "/details.html",
         name=template["metadata"]["name"],
         params=template["params"],
-        file=dfsakjhkl,
+        file=file_path,
     )
 
 

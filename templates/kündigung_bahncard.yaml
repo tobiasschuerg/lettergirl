@@ -4,9 +4,11 @@ to: |
 opening: "Sehr geehrte Damen und Herren,"
 subject: "Kündigung: [bahncard_produkt]"
 body: |
-  hiermit kündige ich zum nächstmöglichen Termin [bahncard_produkt].
+  Hiermit kündige ich mein [bahncard_produkt] zum nächstmöglichen Termin.
 
   Meine Bahncard-Kartennummer: [bahncard_nummer]
+
+  Meine Adresse: [my_address]
 
   Bitte bestätigen sie mir umgehend den Erhalt der Kündigung.
 
