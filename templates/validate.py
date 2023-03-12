@@ -7,6 +7,7 @@ folder_path = "."
 
 
 def validate_file():
+    print(f"validate {filename}")
     # Load YAML file
     with open(os.path.join(folder_path, filename), "r") as f:
         data = yaml.safe_load(f)
