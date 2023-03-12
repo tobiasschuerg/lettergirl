@@ -13,6 +13,6 @@ jobs:
       - name: Install dependencies
         run: |
           npm install
-          pip install -r requirements.txt
+          pip install yapf
       - name: Run formatting check
         run: npm run check-format
