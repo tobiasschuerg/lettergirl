@@ -1,0 +1,13 @@
+to: "[to]"
+opening: "[opening]"
+subject: "[subject]"
+body: "[body]"
+closing: "[closing]"
+metadata:
+  name: "Generisch"
+params:
+  - key: to
+  - key: opening
+  - key: subject
+  - key: body
+  - key: closing
