@@ -14,7 +14,7 @@ jobs:
       - name: Install Python
         uses: actions/setup-python@v2
       - name: Install dependencies
-        run:         pip install -r requirements.txt
+        run: pip install -r requirements.txt
       - name: Run template validation script
         working-directory: templates
         run: python validate.py
